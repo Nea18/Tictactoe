@@ -80,14 +80,30 @@ class Game
     puts 'Please enter a name for player 2:'
     @p2 = Player.new(gets.chomp, '0', [])
     @board = Board.new
+    turn
     #TO DO : créé 2 joueurs, créé un board
   end
 
-  def go
+  def go()
+    @move_number = 1
+    @win = false
     # TO DO : lance la partie
   end
 
-  def turn
+  def turn()
+    @move_number = 2
+
+    puts "#{@p1.name} vous jouez les 'X'"
+    puts "#{@p2.name} vous jouez les 'O'"
+
+    if @move_number % 2 == 0
+      puts "#{@p1.name} à vous de jouer"
+    else
+      puts "#{@p2.name} à vous de jouer"
+    end
+
+    print @board.to_s
+
     #TO DO : affiche le plateau, demande au joueur il joue quoi, vérifie si un joueur a gagné, passe au joueur suivant si la partie n'est pas finie
   end
 
